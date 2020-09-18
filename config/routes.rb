@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   }
 
   root to: 'items#index'
+  resources :farms, only: [:new, :create, :show]
 end
