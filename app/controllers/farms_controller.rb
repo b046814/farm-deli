@@ -15,5 +15,7 @@ class FarmsController < ApplicationController
   private
 
   def farms_params
-    params.require(:farm).permit(:name, :prefecture_id, :description, :feature, image: []).merge(farmer_id: current_farmer.id)
+    params.require(:farm).permit(:name, :prefecture_id, :description, :feature, images: []).merge(farmer_id: current_farmer.id)
+  end
+
 end
