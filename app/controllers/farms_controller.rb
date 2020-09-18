@@ -16,6 +16,25 @@ class FarmsController < ApplicationController
     @farm = Farm.find(params[:id])
   end
 
+  def edit
+    @farm = Farm.find(params[:id])
+  end
+
+  def update
+    farm = Farm.find(params[:id])
+    if params[:farm][:image_ids]
+      params[:farm][:image_ids].each do |image_id|
+        image = post.images.find(image_id)
+        image.purge
+      end
+    end
+    if farm.update(farms_params)
+      redirect_to farm_path(farm.id)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def farms_params
