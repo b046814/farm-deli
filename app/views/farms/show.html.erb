@@ -1,0 +1,25 @@
+<h1>生産者紹介</h1>
+<div>
+<%= @farm.name %>
+</div>
+<div>
+<%= @farm.prefecture.name %>
+</div>
+<div>
+<%= image_tag @farm.images[0] %>
+</div>
+<div>
+<% i = 0 %>
+<% @farm.images.each do |image| %>
+<% if i != 0 %>
+<%= image_tag image.variant(resize:'300x400') %>
+<% end %>
+<% i += 1%>
+<% end %>
+</div>
+<div>
+<%= @farm.description %>
+</div>
+<div>
+<%= @farm.feature %>
+</div>

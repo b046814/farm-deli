@@ -12,6 +12,10 @@ class FarmsController < ApplicationController
     end
   end
 
+  def show
+    @farm = Farm.find(params[:id])
+  end
+
   private
 
   def farms_params
