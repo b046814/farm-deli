@@ -9,12 +9,13 @@
 <div class='form_input'>
 <%= form.label :images, '紹介画像(4枚まで選択可)' %>
 <ul>
-<li><%= form.file_field :images, multiple: true, id:'item-image1' %></li>
-<li><%= form.file_field :images, multiple: true, id:'item-image2' %></li>
-<li><%= form.file_field :images, multiple: true, id:'item-image3' %></li>
-<li><%= form.file_field :images, multiple: true, id:'item-image4' %></li>
+<li><%= form.file_field :images, multiple: true, id:'farm-image1' %></li>
+<li><%= form.file_field :images, multiple: true, id:'farm-image2' %></li>
+<li><%= form.file_field :images, multiple: true, id:'farm-image3' %></li>
+<li><%= form.file_field :images, multiple: true, id:'farm-image4' %></li>
 </ul>
 </div>
+<div id='image-list'></div>
 <div class='form_input'>
 <%= form.label :prefecture_id, '都道府県'%>
 <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {})%>
