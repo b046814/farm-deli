@@ -1,0 +1,2 @@
+class FarmTag < ApplicationRecord
+end
