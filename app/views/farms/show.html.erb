@@ -6,8 +6,15 @@
 <%= link_to '紹介ページ編集', edit_farm_path(@farm.id) %>
 <%= link_to '紹介ページ削除', farm_path(@farm), method: :delete %>
 <% end %>
+<div>生産品目
 <div>
-<%= @farm.prefecture.name %>
+<% @farm_tags.each do |tag| %>
+<%= "#{tag.text} " %>
+<% end %> 
+</div>
+</div>
+<div>
+<%= "所在地: #{@farm.prefecture.name}" %>
 </div>
 
 <div>
