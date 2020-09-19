@@ -5,7 +5,8 @@ class Farm < ApplicationRecord
   has_many_attached :images
   has_many :farm_tags, dependent: :destroy
   has_many :tags, through: :farm_tags, dependent: :destroy
-
+  has_many :favorites, dependent: :destroy
+  has_many :users, through: :favorites, dependent: :destroy
   
   validates :farmer_id, uniqueness: true
   validates :name, :images, :description, :feature, :prefecture_id, presence: true
