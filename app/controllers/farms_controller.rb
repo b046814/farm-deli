@@ -1,5 +1,7 @@
 class FarmsController < ApplicationController
-  before_action :set_farm, only: [:show, :edit, :update]
+  before_action :set_farm, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_farmer!, only: :new
+  before_action :move_to_root, only: [:edit, :destroy]
 
   def new
     @farm = Farm.new 
@@ -38,11 +40,10 @@ class FarmsController < ApplicationController
   end
 
   def destroy
-    farm = Farm.find(params[:id])
-    if farm.destroy
+    if @farm.destroy
       redirect_to root_path
     else
-      redirect_to farm_path(farm)
+      redirect_to farm_path(@farm)
     end
   end
 
@@ -54,5 +55,11 @@ class FarmsController < ApplicationController
 
   def set_farm
     @farm = Farm.find(params[:id])
+  end
+
+  def move_to_root
+    return if farmer_signed_in? && current_farmer.id == @farm.farmer_id
+
+    redirect_to root_path
   end
 end
