@@ -3,8 +3,12 @@
 <%= form_with model: @farm, local: true do |form| %>
 <%= render "shares/error_messages", model: form.object %>
 <div class='form_input'>
-<%= form.label :name, '農園名もしくは法人名、個人の生産者様はお名前フルネーム' %>
-<%= form.text_area :name, placeholder:'(例)せせらぎ農園' %>
+<%= form.label :name, '農園名もしくは法人名、個人の生産者様はお名前フルネーム' %><br>
+<%= form.text_area :name, placeholder:'(例)せせらぎ農園', size: '40x2' %>
+</div>
+<div class='form_input'>
+  <%= form.label :text, '販売予定品目を全角カタカナで入力して下さい(品名の間には半角の,を入力して下さい)' %>
+  <%= form.text_field :text, value: @tag_list, size: '40x1' %>
 </div>
 <div class='form_input'>
 <%= form.label :images, '紹介画像(4枚まで選択可)' %>
@@ -24,16 +28,16 @@
   <% end %>
 <% end %>
 <div class='form_input'>
-<%= form.label :prefecture_id, '都道府県'%>
+<%= form.label :prefecture_id, '都道府県'%><br>
 <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {})%>
 </div>
 <div class='form_input'>
-<%= form.label :description, '紹介文' %>
-<%= form.text_area :description, placeholder:'農園の紹介' %>
+<%= form.label :description, '紹介文' %><br>
+<%= form.text_area :description, placeholder:'農園の紹介', size: '80x10' %>
 </div>
 <div class='form_input'>
-<%= form.label :feature, 'ここがこだわり' %>
-<%= form.text_area :feature, placeholder:'こだわっている事、農園の特徴' %>
+<%= form.label :feature, 'ここがこだわり' %><br>
+<%= form.text_area :feature, placeholder:'こだわっている事、農園の特徴', size: '80x10' %>
 </div>
 <div class='form_input'>
 <%= form.submit '更新' %>
