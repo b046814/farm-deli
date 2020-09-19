@@ -9,7 +9,11 @@ class FarmsController < ApplicationController
 
   def create
     @farm = Farm.new(farms_params)
+    if params[:farm][:text]
+    tag_list = params[:farm][:text].split(",")
+    end
     if @farm.save
+      @farm.save_tag(tag_list)
       redirect_to root_path
     else
       render :new
@@ -17,9 +21,11 @@ class FarmsController < ApplicationController
   end
 
   def show
+    @farm_tags = @farm.tags
   end
 
   def edit
+    @tag_list = @farm.tags.pluck(:text).join(",")
   end
 
   def update
@@ -32,8 +38,12 @@ class FarmsController < ApplicationController
     if farms_params[:images]
       @farm.images.attach(farms_params[:images])
     end
+    if params[:farm][:text]
+    tag_list = params[:farm][:text].split(",")
+    end
     if @farm.update(name: farms_params[:name], prefecture_id: farms_params[:prefecture_id], description: farms_params[:description], feature: farms_params[:feature], farmer_id: farms_params[:farmer_id])
-        redirect_to farm_path(@farm.id)
+      @farm.save_tag(tag_list)  
+      redirect_to farm_path(@farm.id)
     else
       render :edit
     end
