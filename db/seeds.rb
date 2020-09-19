@@ -1,7 +1,45 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Tag.create([
+  { text: 'トマト' },
+  { text: 'ミニトマト' },
+  { text: 'ハクサイ' },
+  { text: 'キャベツ' },
+  { text: 'レタス' },
+  { text: 'コマツナ' },
+  { text: 'シュンギク' },
+  { text: 'ホウレンソウ' },
+  { text: 'アスパラガス' },
+  { text: 'ブロッコリー' },
+  { text: 'カリフラワー' },
+  { text: 'レンコン' },
+  { text: 'ゴボウ' },
+  { text: 'サトイモ' },
+  { text: 'シソ' },
+  { text: 'ナス' },
+  { text: 'キュウリ' },
+  { text: 'ピーマン' },
+  { text: 'オクラ' },
+  { text: 'ミョウガ' },
+  { text: 'ニンジン' },
+  { text: 'ショウガ' },
+  { text: 'ニラ' },
+  { text: 'ニンニク' },
+  { text: 'ダイコン' },
+  { text: 'ジャガイモ' },
+  { text: 'サツマイモ' },
+  { text: 'トウモロコシ' },
+  { text: 'エダマメ' },
+  { text: 'シイタケ' },
+  { text: 'タマネギ' },
+  { text: 'ネギ' },
+  { text: 'イチゴ' },
+  { text: 'ミカン' },
+  { text: 'ブドウ' },
+  { text: 'メロン' },
+  { text: 'スイカ' },
+  { text: 'レモン' },
+  { text: 'バナナ' },
+  { text: 'リンゴ' },
+  { text: 'モモ' },
+  { text: 'ナシ' },
+  { text: 'パイナップル' }
+])
