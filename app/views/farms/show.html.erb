@@ -2,24 +2,29 @@
 <div>
 <%= @farm.name %>
 </div>
+<% if current_farmer = @farm.farmer %>
+<%= link_to '紹介ページ編集', edit_farm_path(@farm.id) %>
+<% end %>
 <div>
 <%= @farm.prefecture.name %>
 </div>
-<div>
-<%= image_tag @farm.images[0] %>
-</div>
+
 <div>
 <% i = 0 %>
-<% @farm.images.each do |image| %>
-<% if i != 0 %>
-<%= image_tag image.variant(resize:'300x400') %>
-<% end %>
-<% i += 1%>
-<% end %>
+  <% @farm.images.each do |image| %>
+    <% if i != 0 %>
+    <%= image_tag image.variant(resize:'300x400') %>
+    <% else %>
+    <%= image_tag image.variant(resize:'600x700') %>
+    <% end %>
+  <% i += 1 %>
+  <% end %>
 </div>
+<h4>農園紹介</h4>
 <div>
 <%= @farm.description %>
 </div>
+<h4>ここがこだわり</h4>
 <div>
 <%= @farm.feature %>
 </div>
