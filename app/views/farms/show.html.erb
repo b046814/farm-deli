@@ -2,8 +2,9 @@
 <div>
 <%= @farm.name %>
 </div>
-<% if current_farmer = @farm.farmer %>
+<% if current_farmer == @farm.farmer %>
 <%= link_to '紹介ページ編集', edit_farm_path(@farm.id) %>
+<%= link_to '紹介ページ削除', farm_path(@farm), method: :delete %>
 <% end %>
 <div>
 <%= @farm.prefecture.name %>

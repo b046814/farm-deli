@@ -1,4 +1,6 @@
 class FarmsController < ApplicationController
+  before_action :set_farm, only: [:show, :edit, :update]
+
   def new
     @farm = Farm.new 
   end
@@ -13,15 +15,12 @@ class FarmsController < ApplicationController
   end
 
   def show
-    @farm = Farm.find(params[:id])
   end
 
   def edit
-    @farm = Farm.find(params[:id])
   end
 
   def update
-    @farm = Farm.find(params[:id])
     if params[:farm][:image_ids]
       params[:farm][:image_ids].each do |image_id|
         image = @farm.images.find(image_id)
@@ -38,10 +37,22 @@ class FarmsController < ApplicationController
     end
   end
 
+  def destroy
+    farm = Farm.find(params[:id])
+    if farm.destroy
+      redirect_to root_path
+    else
+      redirect_to farm_path(farm)
+    end
+  end
+
   private
 
   def farms_params
     params.require(:farm).permit(:name, :prefecture_id, :description, :feature, images: []).merge(farmer_id: current_farmer.id)
   end
 
+  def set_farm
+    @farm = Farm.find(params[:id])
+  end
 end
