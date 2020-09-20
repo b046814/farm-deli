@@ -1,0 +1,16 @@
+// Place all the styles related to the favorites controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.like-link {
+  text-decoration: none;
+}
+
+.like-btn {
+  font-size: 30px;
+  color: #808080;
+}
+
+.unlike-btn {
+  font-size: 30px;
+  color: lightblue;
+}

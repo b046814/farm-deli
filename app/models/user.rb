@@ -11,4 +11,10 @@ class User < ApplicationRecord
   validates :last_name_kana, format: { with: /\A[ァ-ン]+\z/ }
   validates :first_name_kana, format: { with: /\A[ァ-ン]+\z/ }
 
+  has_many :favorites, dependent: :destroy
+  has_many :farms, through: :favorites, dependent: :destroy
+
+  def already_favorite?(farm)
+    self.favorites.exists?(farm_id: farm.id)
+  end
 end
