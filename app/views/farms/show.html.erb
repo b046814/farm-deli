@@ -2,22 +2,8 @@
 <div>
 <%= @farm.name %>
 </div>
-<div>
-<% if user_signed_in? %>
-<% if current_user.already_favorite?(@farm) %>
-  <%= link_to farm_favorite_path(@farm), class: "like-link", method: :delete do %>
-  <i class="far fa-thumbs-up unlike-btn"></i>
-  <% end %><%= @farm.favorites.count %>
-<% else %>
-  <%= link_to farm_favorites_path(@farm), class: "like-link", method: :post do %>
-  <i class="far fa-thumbs-up like-btn"></i>
-  <% end %><%= @farm.favorites.count %>
-<% end %>
-<%end%>
-<% unless user_signed_in? %>
-<%= button_to 'いいね', farm_favorites_path(@farm) %><%= @farm.favorites.count %>
-<%end%>
-
+<div id="farm_<%= @farm.id %>">
+  <%= render partial: "shares/favorite", locals: { farm: @farm } %>
 </div>
 <% if current_farmer == @farm.farmer %>
 <%= link_to '紹介ページ編集', edit_farm_path(@farm.id) %>
