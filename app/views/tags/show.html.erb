@@ -1,9 +1,4 @@
-<%= render partial: 'shares/bar_menu' %>
-<div>
-<% @tags.each do |tag| %>
-<%= link_to "#{tag.text}生産農園", tag_path(tag.id) %>
-<% end %>
-</div>
+<h3><%= "#{@tag.text}生産農園一覧" %>
 <% @farms.each do |farm| %>
 <div>
 <%= link_to farm.name, farm_path(farm) %><br>
