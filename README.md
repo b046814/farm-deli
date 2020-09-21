@@ -31,7 +31,8 @@ Ruby / Ruby on Rails / Javascript / MySQL / GitHub / AWS / Visual Studio Code / 
 | birth_date     | date    | null: false               |
 
 ### Association
-- has_many :likes
+- has_many :favorites
+- has_many :farms, through: :favorites
 - has_many :orders
 - has_many :comments
 
@@ -66,14 +67,14 @@ Ruby / Ruby on Rails / Javascript / MySQL / GitHub / AWS / Visual Studio Code / 
 
 ### Association
 - belongs_to :farmer
-- has_many :likes
-- has_many :users, through: :likes
+- has_many :favorites
+- has_many :users, through: :favorites
 - has_many :comments
 - has_many :tweets
 - has_many :farm_tags
 - has_many :tags, through: :farm_tags
 
-## likes テーブル
+## favorites テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
@@ -118,6 +119,8 @@ Ruby / Ruby on Rails / Javascript / MySQL / GitHub / AWS / Visual Studio Code / 
 ### Association
 - has_many :farm_tags
 - has_many :farm, through: :farm_tags
+- has_many :items
+
 
 ## farm_tags テーブル
 
@@ -137,7 +140,6 @@ Ruby / Ruby on Rails / Javascript / MySQL / GitHub / AWS / Visual Studio Code / 
 | --------------- | ---------- | ------------------------------ |
 | name            | string     | null: false                    |
 | description     | text       | null: false                    |
-| category_id     | integer    | null: false                    |
 | ship_expense_id | integer    | null: false                    |
 | prefecture_id   | integer    | null: false                    |
 | period_id       | integer    | null: false                    |
