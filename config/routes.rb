@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :farms, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :favorites, only: [:create, :destroy]
   end
+  resources :users, only: :show
 end

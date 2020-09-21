@@ -1,0 +1,11 @@
+<h3>いいねしている生産者</h3>
+<% @user.farms.each do |farm| %>
+  <div>
+<%= link_to farm.name, farm_path(farm) %><br>
+<%= image_tag farm.images.first.variant(resize:'150x150') %><br>
+生産品目:<br>
+<% farm.tags.each do |tag| %>
+  <%= "#{tag.text}," %>
+<% end %>
+</div>
+<% end %>
