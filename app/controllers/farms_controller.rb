@@ -22,6 +22,7 @@ class FarmsController < ApplicationController
 
   def show
     @farm_tags = @farm.tags
+    @farmer = @farm.farmer
   end
 
   def edit

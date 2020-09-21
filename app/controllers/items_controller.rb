@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @farms = Farm.includes(:farmer)
+    @items = Item.all
     @tags = Tag.all
   end
 
