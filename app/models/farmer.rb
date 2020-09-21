@@ -14,4 +14,5 @@ validates :last_name_kana, format: { with: /\A[ァ-ン]+\z/ }
 validates :first_name_kana, format: { with: /\A[ァ-ン]+\z/ }
 
 has_one :farm
+has_many :items
 end
