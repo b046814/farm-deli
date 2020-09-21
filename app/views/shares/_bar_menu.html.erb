@@ -1,14 +1,14 @@
 <div class='bar'>
   <% if user_signed_in? %>
   <%= link_to current_user.nickname, '#' %>
-  <%= link_to 'お客様ログアウト', destroy_user_session_path, method: :delete %>
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
   <%= link_to 'お気に入り農園', user_path(current_user.id) %>
   <% elsif farmer_signed_in? %>
   <%= link_to current_farmer.nickname, '#' %>
     <% unless current_farmer.farm %>
       <%= link_to '農園紹介ページ作成', new_farm_path %>
     <% end%>
-  <%= link_to '生産者様ログアウト', destroy_farmer_session_path, method: :delete %>
+  <%= link_to 'ログアウト', destroy_farmer_session_path, method: :delete %>
   <% else %>
   <%= link_to 'お客様新規登録', new_user_registration_path %>
   <%= link_to 'お客様ログイン', new_user_session_path %>

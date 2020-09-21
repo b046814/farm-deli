@@ -1,9 +1,11 @@
 <%= render partial: 'shares/bar_menu' %>
+<h3>品目別農園カテゴリー<h3>
 <div>
 <% @tags.each do |tag| %>
 <%= link_to "#{tag.text}生産農園", tag_path(tag.id) %>
 <% end %>
 </div>
+<h3>生産農園</h3>
 <% @farms.each do |farm| %>
 <div>
 <%= link_to farm.name, farm_path(farm) %><br>
@@ -14,3 +16,14 @@
 <% end %>
 </div>
 <% end %>
+<h3>出品農産物</h3>
+<div>
+<% @items.each do |item| %>
+<%= image_tag item.image.variant(resize:'150x150') %><br>
+<%= item.description %><br>
+<%= item.prefecture.name %>産<br>
+<%= item.price %>円<br>
+<% end %>
+<div>
+<%= link_to '商品出品', new_item_path %>
+</div>
