@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   }
 
   root to: 'items#index'
+  resources :items, only: [:new, :create]
   resources :farms, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :favorites, only: [:create, :destroy]
   end

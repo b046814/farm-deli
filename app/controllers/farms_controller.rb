@@ -4,7 +4,7 @@ class FarmsController < ApplicationController
   before_action :move_to_root, only: [:edit, :destroy]
 
   def new
-    @farm = Farm.new 
+    @farm = Farm.new
   end
 
   def create
