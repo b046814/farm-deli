@@ -1,0 +1,13 @@
+.new-item{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+
+.new-item-link{
+  text-decoration: none;
+  border: 2px double skyblue;
+  color: skyblue;
+  padding: 10px;
+  font-size: 13px;
+}

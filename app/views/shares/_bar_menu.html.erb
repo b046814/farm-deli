@@ -1,18 +1,31 @@
+<div class='bar-logo'>
+        <%= link_to image_tag('farmdeli.png', class:"farmdeli"), root_path %>
+</div>
 <div class='bar'>
   <% if user_signed_in? %>
-  <%= link_to current_user.nickname, '#' %>
-  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-  <%= link_to 'お気に入り農園', user_path(current_user.id) %>
+    <ul class='lists-left'>
+      <li><%= link_to current_user.nickname, '#', class:'bar-link name' %></li>
+      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'bar-link login-out' %></li>
+      <li><%= link_to 'お気に入り農園', user_path(current_user.id), class:'bar-link my-favorite' %></li>
+    </ul>
   <% elsif farmer_signed_in? %>
-  <%= link_to current_farmer.nickname, '#' %>
-    <% unless current_farmer.farm %>
-      <%= link_to '農園紹介ページ作成', new_farm_path %>
-    <% end%>
-  <%= link_to 'ログアウト', destroy_farmer_session_path, method: :delete %>
+    <ul class='lists-left'>
+      <li><%= link_to current_farmer.nickname, '#', class:'bar-link name' %></li>
+      <li><%= link_to 'ログアウト', destroy_farmer_session_path, method: :delete, class:'bar-link login-out' %></li>
+      <% unless current_farmer.farm %>
+        <li><%= link_to '農園紹介ページ作成', new_farm_path, class:'bar-link my-favorite' %><li>
+      <% end%>
+    </ul>
   <% else %>
-  <%= link_to 'お客様新規登録', new_user_registration_path %>
-  <%= link_to 'お客様ログイン', new_user_session_path %>
-  <%= link_to '生産者様新規登録', new_farmer_registration_path %>
-  <%= link_to '生産者様ログイン', new_farmer_session_path %>
+    <div class='bar-before'>
+    <ul class='lists-left'>
+      <li><%= link_to 'お客様新規登録', new_user_registration_path, class:'bar-link login-out' %></li>
+      <li><%= link_to 'お客様ログイン', new_user_session_path, class:'bar-link login-out' %></li>
+    </ul>
+    <ul class='lists-right'>
+      <li><%= link_to '生産者様新規登録', new_farmer_registration_path, class:'bar-link log-farmer' %></li>
+      <li><%= link_to '生産者様ログイン', new_farmer_session_path, class:'bar-link log-farmer' %></li>
+    </ul>
+    </div>
   <% end %>
 </div>

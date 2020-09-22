@@ -1,4 +1,7 @@
 <%= render partial: 'shares/bar_menu' %>
+<div class="new-item">
+<%= link_to '商品出品', new_item_path, class:"new-item-link" %>
+</div>
 <h3>品目別農園カテゴリー<h3>
 <div>
 <% @tags.each do |tag| %>
@@ -24,6 +27,3 @@
 <%= item.prefecture.name %>産<br>
 <%= item.price %>円<br>
 <% end %>
-<div>
-<%= link_to '商品出品', new_item_path %>
-</div>
