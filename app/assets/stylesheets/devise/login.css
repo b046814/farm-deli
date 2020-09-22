@@ -1,0 +1,7 @@
+.box-login {
+  width: 450px;
+  height: 250px;
+  margin: 60px auto 0;
+  border-radius: 4px;
+  border: 1px #ddd solid;
+}
