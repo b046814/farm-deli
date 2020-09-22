@@ -1,0 +1,47 @@
+.farm-big-title{
+  text-align: center;
+}
+
+.farm-favorite{
+  display: flex;
+  justify-content: center;
+}
+
+.farm-middle-title{
+  border-bottom: 5px solid lightgreen;
+  padding: 10px;
+  margin-right: 20px;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.farm-small-title{
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+.item-tag {
+  text-align: center;
+}
+
+.farm-images{
+}
+
+.farm-images-each{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.farm-first-image{
+  width: 100%;
+  height: 500px;
+  margin: 10px;
+}
+
+.farm-other-images{
+  width: 400px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}

@@ -1,50 +1,54 @@
 <%= render partial: 'shares/bar_menu' %>
-<h1>生産者紹介</h1>
-<div>
-<%= @farm.name %>
-</div>
+<h1 class="farm-big-title">＜農園紹介＞</h1>
+<div class="farm-favorite">
+<h3 class="farm-middle-title"><%= @farm.name %><h3>
 <div id="farm_<%= @farm.id %>">
   <%= render partial: "shares/favorite", locals: { farm: @farm } %>
+</div>
 </div>
 <% if current_farmer == @farm.farmer %>
 <%= link_to '紹介ページ編集', edit_farm_path(@farm.id) %>
 <%= link_to '紹介ページ削除', farm_path(@farm), method: :delete %>
 <% end %>
-<div>生産品目
-<div>
+<h4 class="farm-small-title">生産品目</h4>
+<div class="item-tag">
 <% @farm_tags.each do |tag| %>
 <%= "#{tag.text} " %>
 <% end %> 
 </div>
-</div>
-<div>
-<%= "所在地: #{@farm.prefecture.name}" %>
-</div>
+<h4 class="farm-small-title">生産地</h4>
+<div class="item-tag"><%= @farm.prefecture.name %></div>
 
-<div>
+<div class="farm-images">
 <% i = 0 %>
+  <div class="farm-images-all">
   <% @farm.images.each do |image| %>
+  <div class="farm-images-each">
     <% if i != 0 %>
-    <%= image_tag image.variant(resize:'300x400') %>
+    <%= image_tag image.variant(resize:'300x400'), class:"farm-other-images" %>
     <% else %>
-    <%= image_tag image.variant(resize:'600x700') %><br>
+    <%= image_tag image.variant(resize:'600x700'), class:"farm-first-image" %><br>
+  </div>
     <% end %>
   <% i += 1 %>
   <% end %>
+  </div>
 </div>
-<h4>農園紹介</h4>
+<h4 class="farm-small-title" >農園紹介</h4>
 <div>
 <%= @farm.description %>
 </div>
-<h4>ここがこだわり</h4>
+<h4 class="farm-small-title">ここがこだわり</h4>
 <div>
 <%= @farm.feature %>
 </div>
-<h4>販売品目</h4>
-<div>
+<h4 class="farm-small-title">販売品目</h4>
+<div class="main-bar-bottom">
 <% @farmer.items.each do |item| %>
-<%= image_tag item.image.variant(resize:'150x150') %><br>
+<div class="each-item">
+<%= image_tag item.image, class:"item-image" %><br>
 <%= item.description %><br>
 <%= item.price %>円<br>
+</div>
 <% end %>
 </div>
