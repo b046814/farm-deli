@@ -1,6 +1,11 @@
-.bar-left{
-  list-style: none;
+.bar{
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bar-below{
+  width: 80%;
 }
 
 .bar-before{
@@ -23,7 +28,7 @@
   text-decoration: none;
   margin-right: 10px;
   color: black;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .login-out{
@@ -45,3 +50,15 @@
   font-weight: bold;
 }
 
+.farmer-login{
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-item-link{
+  margin-right: 30px;
+  border: 1px solid rgb(45, 180, 214);
+  text-decoration: none;
+  color: rgb(45, 180, 214);
+  padding: 10px;
+}

@@ -1,0 +1,44 @@
+.top-image{
+  margin-top: 10px;
+}
+.top-image-png{
+  width: 100%;
+  height: 30vh;
+}
+.main{
+  display:flex;
+}
+
+.side-bar{
+  width: 200px;
+  border: 1px solid black;
+  margin-right: 5px;
+}
+
+.category-title{
+  text-align: center;
+}
+.category-lists{
+  list-style: none;
+}
+
+.category-list{
+  margin: 25px 30px 25px auto;
+  font-size: 14px;
+}
+
+.category-link{
+  color: black;
+}
+
+.main-bar{
+  width: calc(100% - 200px)
+}
+
+.main-head{
+
+}
+.main-bottom{
+  
+}
+

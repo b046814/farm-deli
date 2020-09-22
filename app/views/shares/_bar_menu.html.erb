@@ -2,6 +2,7 @@
         <%= link_to image_tag('farmdeli.png', class:"farmdeli"), root_path %>
 </div>
 <div class='bar'>
+<div class='bar-below'>
   <% if user_signed_in? %>
     <ul class='lists-left'>
       <li><%= link_to current_user.nickname, '#', class:'bar-link name' %></li>
@@ -9,6 +10,7 @@
       <li><%= link_to 'お気に入り農園', user_path(current_user.id), class:'bar-link my-favorite' %></li>
     </ul>
   <% elsif farmer_signed_in? %>
+    <div class='farmer-login'>
     <ul class='lists-left'>
       <li><%= link_to current_farmer.nickname, '#', class:'bar-link name' %></li>
       <li><%= link_to 'ログアウト', destroy_farmer_session_path, method: :delete, class:'bar-link login-out' %></li>
@@ -16,8 +18,12 @@
         <li><%= link_to '農園紹介ページ作成', new_farm_path, class:'bar-link my-favorite' %><li>
       <% end%>
     </ul>
+    <ul class='lists-left'>
+    <li><%= link_to '商品出品', new_item_path, class:"new-item-link" %></li>
+    </ul>
+    </div>
   <% else %>
-    <div class='bar-before'>
+  <div class='bar-before'>
     <ul class='lists-left'>
       <li><%= link_to 'お客様新規登録', new_user_registration_path, class:'bar-link login-out' %></li>
       <li><%= link_to 'お客様ログイン', new_user_session_path, class:'bar-link login-out' %></li>
@@ -28,4 +34,5 @@
     </ul>
     </div>
   <% end %>
+  </div>
 </div>
