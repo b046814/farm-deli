@@ -2,6 +2,10 @@
 <div class="new-item">
 <%= link_to '商品出品', new_item_path, class:"new-item-link" %>
 </div>
+<div class="top-image">
+<%= image_tag "top.png", class:"top-image-png" %>
+</div>
+
 <h3>品目別農園カテゴリー<h3>
 <div>
 <% @tags.each do |tag| %>
