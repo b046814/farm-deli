@@ -1,11 +1,13 @@
 <%= render partial: 'shares/bar_menu_second' %>
 <h2 class="sign-head">Sign up</h2>
 <p class="sign-notice">生産者様専用登録ページ</p>
-<div class="box">
-<div class="box-inner">
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "farmers/shared/error_messages", resource: resource %>
 
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div class="error-messages">
+  <%= render "farmers/shared/error_messages", resource: resource %>
+  </div>
+  <div class="box">
+  <div class="box-inner">
   <div class="box-text">
     <%= f.label :nickname, "ニックネーム" %><b>  必須</b><br>
     <%= f.text_field :nickname, placeholder: '(例)山本tonyタカシ' %>
@@ -62,6 +64,7 @@
   <div class="box-submit">
     <%= f.submit "Sign up" %>
   </div>
+  </div>
+  </div>
 <% end %>
-</div>
-</div>
+

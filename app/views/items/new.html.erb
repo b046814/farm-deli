@@ -1,9 +1,12 @@
 <%= render partial: 'shares/bar_menu_second' %>
 <h2 class="sign-head">商品出品</h2>
+
+<%= form_with model: @item, local: true do |form| %>
+<div class="error-messages">
+<%= render "shares/error_messages", model: form.object %>
+</div>
 <div class="box-item">
 <div class="box-inner">
-<%= form_with model: @item, local: true do |form| %>
-<%= render "shares/error_messages", model: form.object %>
 <div class='box-text'>
 <%= form.label :name, '品目を全角カタカナで入力して下さい' %><br>
 <%= form.text_field :name, placeholder:'(例)トマト', size: '30x1' %>
@@ -30,12 +33,12 @@
 <%= form.collection_select(:period_id, Period.all, :id, :name, {}) %>
 </div>
 <div class='box-text'>
-<%= form.label :price, '価格' %><br>
+<%= form.label :price, '価格(半角数字で100以上の数値を入力して下さい)' %><br>
 <%= form.text_field :price, placeholder: '(例)1500', size: '30x1' %>
 </div>
 <div class='box-submit'>
 <%= form.submit '作成' %>
 </div>
+</div>
+</div>
 <% end %>
-</div>
-</div>

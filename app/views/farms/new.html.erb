@@ -1,10 +1,12 @@
 <%= render partial: 'shares/bar_menu_second' %>
 <h2 class="sign-head">農園紹介新規作成</h1>
 
+<%= form_with model: @farm, local: true do |form| %>
+<div class="error-messages">
+<%= render "shares/error_messages", model: form.object %>
+</div>
 <div class="box-farm">
 <div class="box-inner">
-<%= form_with model: @farm, local: true do |form| %>
-<%= render "shares/error_messages", model: form.object %>
 <div class='box-text'>
 <%= form.label :name, '農園名もしくは法人名、個人の生産者様はお名前フルネーム' %><br>
 <%= form.text_field :name, placeholder:'(例)せせらぎ農園' %>
@@ -38,6 +40,6 @@
 <div class='box-submit'>
 <%= form.submit '作成' %>
 </div>
+</div>
+</div>
 <% end %>
-</div>
-</div>
