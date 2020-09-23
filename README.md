@@ -28,11 +28,11 @@ Pass: 2222
 # 利用方法
 ## 購入者
 トップページ上部の左側にあるお客様新規登録ボタンをクリック→新規登録ページに移動→必要事項を入力すると登録完了  
-ログイン後は農園ページへのいいね（親指を上げているボタンクリック）、いいねをした農園一覧表示、農園へのコメント、商品の購入ができます。  
+ログイン後は農園ページへのいいね（親指を上げているボタンクリック）、いいねをした農園一覧表示、生産者(農園)とのチャット、商品の購入ができます。  
 **※農園へのコメント機能、商品の購入機能はまだ実装していません。**
 ## 生産者
 トップページ上部右側にある生産者様新規登録ボタンをクリック→新規登録ページに移動→必要事項を入力すると登録完了  
-ログイン後は農園ページの作成(1農園まで)・編集・削除、商品の出品・編集・購入履歴のない商品については削除ができます。また、農園ページに紐づくツイートの投稿ができます。  
+ログイン後は農園ページの作成(1農園まで)・編集・削除、商品の出品・編集・購入履歴のない商品については削除ができます。また、購入者が農園紹介ページからチャットルームを作った場合には購入者とチャットができます。
 **※ツイートの投稿機能、商品の編集・削除機能はまだ実装していません。**
 
 # 使用技術
@@ -56,8 +56,7 @@ HTML / CSS / Ruby / Ruby on Rails / Javascript / MySQL / GitHub / heroku / Visua
 
 # 実装予定の機能
 - 商品編集・削除機能
-- コメント機能
-- ツイート機能
+- チャット機能
 - 商品購入機能
 
 # テーブル設計
@@ -80,7 +79,8 @@ HTML / CSS / Ruby / Ruby on Rails / Javascript / MySQL / GitHub / heroku / Visua
 - has_many :favorites
 - has_many :farms, through: :favorites
 - has_many :orders
-- has_many :comments
+- has_many :rooms,
+- has_many :farmers, through: :rooms
 
 ## farmers テーブル
 
@@ -98,6 +98,8 @@ HTML / CSS / Ruby / Ruby on Rails / Javascript / MySQL / GitHub / heroku / Visua
 ### Association
 - has_many :items
 - has_one  :farm
+- has_many :rooms
+- has_many :users, through: :rooms
 
 ## farms テーブル
 
@@ -114,8 +116,6 @@ HTML / CSS / Ruby / Ruby on Rails / Javascript / MySQL / GitHub / heroku / Visua
 - belongs_to :farmer
 - has_many :favorites
 - has_many :users, through: :favorites
-- has_many :comments
-- has_many :tweets
 - has_many :farm_tags
 - has_many :tags, through: :farm_tags
 
@@ -130,28 +130,28 @@ HTML / CSS / Ruby / Ruby on Rails / Javascript / MySQL / GitHub / heroku / Visua
 - belongs_to :user
 - belongs_to :farm
 
-## comments テーブル
+## rooms テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
-| content          | text       | null: false                    |
 | user             | references | null: false, foreign_key: true |
-| farm             | references | null: false, foreign_key: true |
+| farmer           | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- belongs_to :farm
+- belongs_to :farmer
+- has_many :massages
 
-## tweets テーブル
+## messages テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
-| title            | string     | null: false                    |
-| content          | text       | null: false                    |
-| farm             | references | null: false, foreign_key: true |
+| content          | text       | null: false                    | 
+| id_user          | boolean    | null: false                    |
+| room             | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :farm
+- belongs_to :room
 
 ## tags テーブル
 
