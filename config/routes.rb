@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   }
 
   root to: 'items#index'
-  resources :items, only: [:new, :create]
+  resources :items, only: [:new, :create] do
+    collection do
+      get 'search'
+    end
+  end
   resources :farms, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :favorites, only: [:create, :destroy]
   end
