@@ -74,3 +74,22 @@
   width: 200px;
   height: 150px;
 }
+
+.search-form{
+  margin-top: 15px;
+}
+
+.search-label{
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.search-input {
+  width: 60%;
+  border-radius: 3px;
+  margin-left: 10px;
+}
+
+.search-submit {
+  border-radius: 3px;
+}
