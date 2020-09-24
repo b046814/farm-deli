@@ -59,6 +59,10 @@ HTML / CSS / Ruby / Ruby on Rails / Javascript / MySQL / GitHub / heroku / Visua
 - チャット機能
 - 商品購入機能
 
+# バージョン
+ruby 2.6.5
+rails 6.0.3.3
+
 # テーブル設計
 [ER図リンク Lucidchart](https://app.lucidchart.com/documents/view/4e0160f5-9897-4f08-a086-dbcd303cdcad/0_0#?folder_id=home&browser=icon)
 
