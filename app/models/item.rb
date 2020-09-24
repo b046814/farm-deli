@@ -12,4 +12,11 @@ class Item < ApplicationRecord
   validates :price, format: { with: /\A[0-9]+\z/ }
   validates :price, numericality: { greater_than_or_equal_to: 100 }
 
+  def self.search(search)
+    if search
+      Item.where('name LIKE(?)', "%#{search}%")
+    else
+      redirect_to root_path
+    end
+  end
 end
