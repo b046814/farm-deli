@@ -13,10 +13,10 @@ class Item < ApplicationRecord
   validates :price, numericality: { greater_than_or_equal_to: 100 }
 
   def self.search(search)
-    if search
+    if search != ""
       Item.where('name LIKE(?)', "%#{search}%")
     else
-      redirect_to root_path
+      Item.all
     end
   end
 end
