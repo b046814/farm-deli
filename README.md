@@ -40,19 +40,22 @@ HTML / CSS / Ruby / Ruby on Rails / Javascript / MySQL / GitHub / heroku / Visua
 
 # 実装済機能
 - ユーザー管理機能(購入者、生産者別管理)
-[gif](https://user-images.githubusercontent.com/68994139/94008805-8ab66e00-fdde-11ea-9a02-5d92a1a1bd44.gif)
+![ユーザー管理機能gif](https://user-images.githubusercontent.com/68994139/94008805-8ab66e00-fdde-11ea-9a02-5d92a1a1bd44.gif)
 
 - 商品出品機能
-[gif](https://user-images.githubusercontent.com/68994139/94009015-cf420980-fdde-11ea-824a-b7055a35341d.gif)
+![商品出品機能gif](https://user-images.githubusercontent.com/68994139/94009015-cf420980-fdde-11ea-824a-b7055a35341d.gif)
 
 - 農園紹介機能
-[gif](https://user-images.githubusercontent.com/68994139/94008950-ba657600-fdde-11ea-8c3e-ed5c57dd33cf.gif)
+![農園紹介機能gif](https://user-images.githubusercontent.com/68994139/94008950-ba657600-fdde-11ea-8c3e-ed5c57dd33cf.gif)
 
 - タグ付機能
-[gif](https://user-images.githubusercontent.com/68994139/94009093-f0a2f580-fdde-11ea-8310-a0c4196576b9.gif)
+![タグ付機能gif](https://user-images.githubusercontent.com/68994139/94009093-f0a2f580-fdde-11ea-8310-a0c4196576b9.gif)
 
 - いいね機能
-[gif](https://user-images.githubusercontent.com/68994139/94008894-a883d300-fdde-11ea-80b2-f6c1eab5186c.gif)
+![いいね機能gif](https://user-images.githubusercontent.com/68994139/94008894-a883d300-fdde-11ea-80b2-f6c1eab5186c.gif)
+
+- 品目検索機能
+![検索機能gif](https://user-images.githubusercontent.com/68994139/94102365-ef200e80-fe6c-11ea-929c-6d66e7cb492f.gif)
 
 # 実装予定の機能
 - 商品編集・削除機能
