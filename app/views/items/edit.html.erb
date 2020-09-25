@@ -1,0 +1,44 @@
+<%= render partial: 'shares/bar_menu_second' %>
+<h2 class="sign-head">商品編集</h2>
+
+<%= form_with model: @item, local: true do |form| %>
+<div class="error-messages">
+<%= render "shares/error_messages", model: form.object %>
+</div>
+<div class="box-item">
+<div class="box-inner">
+<div class='box-text'>
+<%= form.label :name, '品目を全角カタカナで入力して下さい' %><br>
+<%= form.text_field :name, placeholder:'(例)トマト', size: '30x1' %>
+</div>
+<div class='box-text'>
+  <%= form.label :description, '詳細を記入して下さい' %><br>
+  <%= form.text_field :description, size: '40x1', placeholder:'(例)完熟トマト 1kg' %>
+</div>
+<div class="box-select">
+<%= form.label :image, '商品画像を選択して下さい(1個)' %><br>
+<%= form.file_field :image, id: 'farm-image1' %>
+</div>
+<div id='image-list'></div>
+<div class="box-select">
+<%= form.label :ship_expense_id, '送料負担' %><br>
+<%= form.collection_select(:ship_expense_id, ShipExpense.all, :id, :name, {}) %>
+</div>
+<div class='box-select'>
+<%= form.label :prefecture_id, '生産地' %><br>
+<%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {})%>
+</div>
+<div class='box-select'>
+<%= form.label :period_id, '発送までにかかる日数' %><br>
+<%= form.collection_select(:period_id, Period.all, :id, :name, {}) %>
+</div>
+<div class='box-text'>
+<%= form.label :price, '価格(半角数字で100以上の数値を入力して下さい)' %><br>
+<%= form.text_field :price, placeholder: '(例)1500', size: '30x1' %>
+</div>
+<div class='box-submit'>
+<%= form.submit '作成' %>
+</div>
+</div>
+</div>
+<% end %>
