@@ -41,5 +41,14 @@
   text-decoration: none;
   color: blue;
   font-size: 22px;
-  padding: 3px;
+  padding: 5px;
+}
+
+.item-delete{
+  margin-left: 5px;
+  border: 1px solid red;
+  text-decoration: none;
+  color: red;
+  font-size: 22px;
+  padding: 5px;
 }

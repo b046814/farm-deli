@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   }
 
   root to: 'items#index'
-  resources :items, only: [:new, :create, :show, :edit, :update] do
+  resources :items do
     collection do
       get 'search'
     end
