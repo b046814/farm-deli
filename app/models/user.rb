@@ -13,6 +13,7 @@ class User < ApplicationRecord
 
   has_many :favorites, dependent: :destroy
   has_many :farms, through: :favorites, dependent: :destroy
+  has_many :rooms
 
   def already_favorite?(farm)
     self.favorites.exists?(farm_id: farm.id)
