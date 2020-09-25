@@ -27,3 +27,19 @@
   width: 60%;
   font-size: 17px;
 }
+
+.edit{
+ display: flex;
+ justify-content: flex-end;
+ margin: 0;
+ height: 30px;
+  
+}
+
+.item-edit{
+  border: 1px solid blue;
+  text-decoration: none;
+  color: blue;
+  font-size: 22px;
+  padding: 3px;
+}
