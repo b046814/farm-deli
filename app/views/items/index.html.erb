@@ -41,9 +41,11 @@
 <div class="main-bar-bottom">
 <% @items.each do |item| %>
 <div class="each-item">
+<%= link_to item_path(item) do %>
 <%= image_tag item.image, class:"item-image" %><br>
 <%= item.description %><br>
 <%= item.prefecture.name %>産<%= "  #{item.price}" %>円<br>
+<% end %>
 </div>
 <% end %>
 </div>
