@@ -24,6 +24,15 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
   end
 
+  def destroy
+    @room = Room.find(params[:id])
+    if @room.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
+
   private
 
   def room_params

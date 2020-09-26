@@ -21,5 +21,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: :show
   resources :tags, only: :show
-  resources :rooms, only: [:index, :new, :create, :show]
+  resources :rooms, only: [:index, :new, :create, :show, :destroy]
 end
