@@ -42,7 +42,7 @@ HTML / CSS / Ruby / Ruby on Rails / Javascript / MySQL / GitHub / heroku / Visua
 - ユーザー管理機能(購入者、生産者別管理)
 ![ユーザー管理機能gif](https://user-images.githubusercontent.com/68994139/94008805-8ab66e00-fdde-11ea-9a02-5d92a1a1bd44.gif)
 
-- 商品出品、編集、削除機能
+- 商品出品機能
 ![商品出品機能gif](https://user-images.githubusercontent.com/68994139/94009015-cf420980-fdde-11ea-824a-b7055a35341d.gif)
 
 - 農園紹介機能
@@ -57,6 +57,8 @@ HTML / CSS / Ruby / Ruby on Rails / Javascript / MySQL / GitHub / heroku / Visua
 - 品目検索機能
 ![検索機能gif](https://user-images.githubusercontent.com/68994139/94102365-ef200e80-fe6c-11ea-929c-6d66e7cb492f.gif)
 
+- チャット機能
+![チャット機能gif](https://user-images.githubusercontent.com/68994139/94330649-68e90100-0001-11eb-9b08-7e61e737fbff.gif)
 
 # 実装予定の機能
 - チャット機能

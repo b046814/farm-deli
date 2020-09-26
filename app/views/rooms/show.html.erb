@@ -1,0 +1,41 @@
+<%= render partial: 'shares/bar_menu' %>
+<div class="chat-room">
+  <div class="chat-header">
+  <div class="chat-header-name">
+  <%if user_signed_in?%>
+  <%= "#{@room.farmer.farm.name}とのチャットルーム" %>
+  <% end %>
+  <% if farmer_signed_in?%>
+  <%= "#{@room.user.last_name}様とのチャットルーム" %>
+  <% end %>
+  </div>
+  <%= link_to "チャットを削除する", room_path(@room), method: :delete, class:"chat-header-delete" %>
+  </div>
+
+  <div class="chat-main">
+  <% @messages.each do |m| %>
+    <% if m.id_user %>
+    <div class="right-message">
+    <%= @user.last_name %><br>
+    <div class="message-content"><%= m.content %></div>
+    <%= m.created_at %>
+    </div>
+    <% else %>
+    <div class="left-message">
+    <%= @farmer.last_name %><br>
+    <div class="message-content"><%= m.content %></div>
+    <%= m.created_at %>
+    </div>
+    <% end %>
+  <% end %>
+  </div>
+
+  <div class="chat-input">
+    <div class="message-form">
+    <%= form_with model: [@room, @message], html: {class: "form"}, local: true do |form| %>
+    <%= form.text_area :content, placeholder:"メッセージを入力して下さい", class:"message-input" %>
+    <%= form.submit "送信", class:"message-submit" %>
+    <% end %>
+    </div>
+  </div>
+</div>

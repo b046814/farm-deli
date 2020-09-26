@@ -1,0 +1,16 @@
+.room-index{
+  width: 70%;
+  margin: 30px auto 0;
+  
+}
+
+.room-index-link{
+  display: block;
+  width: 60%;
+  margin: 20px auto;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid black;
+  color: black;
+}
