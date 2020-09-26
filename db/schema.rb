@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_012510) do
+ActiveRecord::Schema.define(version: 2020_09_26_232807) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,19 @@ ActiveRecord::Schema.define(version: 2020_09_26_012510) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "postal_code", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "block_number", null: false
+    t.string "building", default: ""
+    t.string "phone_number", null: false
+    t.bigint "order_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_addresses_on_order_id"
   end
 
   create_table "farm_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -102,6 +115,16 @@ ActiveRecord::Schema.define(version: 2020_09_26_012510) do
     t.index ["room_id"], name: "index_messages_on_room_id"
   end
 
+  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.integer "item_count", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_orders_on_item_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "farmer_id", null: false
@@ -136,6 +159,7 @@ ActiveRecord::Schema.define(version: 2020_09_26_012510) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "addresses", "orders"
   add_foreign_key "farm_tags", "farms"
   add_foreign_key "farm_tags", "tags"
   add_foreign_key "farms", "farmers"
@@ -143,6 +167,8 @@ ActiveRecord::Schema.define(version: 2020_09_26_012510) do
   add_foreign_key "favorites", "users"
   add_foreign_key "items", "farmers"
   add_foreign_key "messages", "rooms"
+  add_foreign_key "orders", "items"
+  add_foreign_key "orders", "users"
   add_foreign_key "rooms", "farmers"
   add_foreign_key "rooms", "users"
 end
