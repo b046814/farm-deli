@@ -2,44 +2,44 @@
 <h2 class="sign-head">農園紹介新規作成</h1>
 
 <%= form_with model: @farm, local: true do |form| %>
-<div class="error-messages">
-<%= render "shares/error_messages", model: form.object %>
-</div>
-<div class="box-farm">
-<div class="box-inner">
-<div class='box-text'>
-<%= form.label :name, '農園名もしくは法人名、個人の生産者様はお名前フルネーム' %><br>
-<%= form.text_field :name, placeholder:'(例)せせらぎ農園' %>
-</div>
-<div class='box-text'>
-  <%= form.label :text, '販売予定品目を全角カタカナで入力して下さい(品名の間には半角の,を入力して下さい)' %>
-  <%= form.text_field :text, placeholder:'(例)タマネギ,ニンジン,トマト' %>
-</div> 
-<div class='box-text'>
-<%= form.label :images, '紹介画像(4枚まで選択可)' %>
-<ul>
-<li><%= form.file_field :images, multiple: true, id:'farm-image1' %></li>
-<li><%= form.file_field :images, multiple: true, id:'farm-image2' %></li>
-<li><%= form.file_field :images, multiple: true, id:'farm-image3' %></li>
-<li><%= form.file_field :images, multiple: true, id:'farm-image4' %></li>
-</ul>
-</div>
-<div id='image-list'></div>
-<div class='input-birth-wrap'>
-<%= form.label :prefecture_id, '都道府県'%><br>
-<%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {})%>
-</div>
-<div class='box-text'>
-<%= form.label :description, '紹介文' %><br>
-<%= form.text_area :description, placeholder:'農園の紹介', size: '80x10' %>
-</div>
-<div class='box-text'>
-<%= form.label :feature, 'ここがこだわり' %><br>
-<%= form.text_area :feature, placeholder:'こだわっている事、農園の特徴', size: '80x10' %>
-</div>
-<div class='box-submit'>
-<%= form.submit '作成' %>
-</div>
-</div>
-</div>
+  <div class="error-messages">
+    <%= render "shares/error_messages", model: form.object %>
+  </div>
+  <div class="box-farm">
+    <div class="box-inner">
+      <div class='box-text'>
+        <%= form.label :name, '農園名もしくは法人名、個人の生産者様はお名前フルネーム' %><br>
+        <%= form.text_field :name, placeholder:'(例)せせらぎ農園' %>
+      </div>
+      <div class='box-text'>
+        <%= form.label :text, '販売予定品目を全角カタカナで入力して下さい(品名の間には半角の,を入力して下さい)' %>
+        <%= form.text_field :text, placeholder:'(例)タマネギ,ニンジン,トマト' %>
+      </div> 
+      <div class='box-text'>
+        <%= form.label :images, '紹介画像(4枚まで選択可)' %>
+        <ul>
+          <li><%= form.file_field :images, multiple: true, id:'farm-image1' %></li>
+          <li><%= form.file_field :images, multiple: true, id:'farm-image2' %></li>
+          <li><%= form.file_field :images, multiple: true, id:'farm-image3' %></li>
+          <li><%= form.file_field :images, multiple: true, id:'farm-image4' %></li>
+        </ul>
+      </div>
+      <div id='image-list'></div>
+      <div class='input-birth-wrap'>
+        <%= form.label :prefecture_id, '都道府県'%><br>
+        <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {})%>
+      </div>
+      <div class='box-text'>
+        <%= form.label :description, '紹介文' %><br>
+        <%= form.text_area :description, placeholder:'農園の紹介', size: '80x10' %>
+      </div>
+      <div class='box-text'>
+        <%= form.label :feature, 'ここがこだわり' %><br>
+        <%= form.text_area :feature, placeholder:'こだわっている事、農園の特徴', size: '80x10' %>
+      </div>
+      <div class='box-submit'>
+        <%= form.submit '作成' %>
+      </div>
+    </div>
+  </div>
 <% end %>

@@ -2,39 +2,39 @@
 
 <div class="show-item">
   <div class="show-item-below">
-  <h2 class="show-item-title">商品詳細</h2>
-  <h3 class="show-item-name"><%= @item.name %></h3>
-  <% if farmer_signed_in? && current_farmer.id == @item.farmer.id %>
-  <div class="show-item edit">
-  <%= link_to '商品編集', edit_item_path(@item), class:"item-edit" %>
-  <%= link_to '商品削除', item_path(@item), method: :delete, class:"item-delete" %>
-  </div>
-  <% end %>
-  <%= image_tag @item.image, class:"show-item-image" %>
-  <table border="2" class="show-item-table">
-    <tr>
-      <td>商品名</td>
-      <td><%= @item.description %></td>
-    </tr>
-    <tr>
-      <td>送料</td>
-      <td><%= @item.ship_expense.name %></td>
-    </tr>
-    <tr>
-      <td>生産地</td>
-      <td><%= @item.prefecture.name %></td>
-    </tr>
-    <tr>
-      <td>生産農園</td>
-      <td><%= link_to @item.farmer.farm.name, farm_path(@item.farmer.farm.id), class:"show-item-link" %>
-    <tr>
-      <td>発送までにかかる日数</td>
-      <td><%= @item.period.name %></td>
-    </tr>
-    <tr>
-      <td>価格</td>
-      <td><%= @item.price %></td>
-    </tr>
-  </table>
+    <h2 class="show-item-title">商品詳細</h2>
+    <h3 class="show-item-name"><%= @item.name %></h3>
+    <% if farmer_signed_in? && current_farmer.id == @item.farmer.id %>
+      <div class="show-item edit">
+        <%= link_to '商品編集', edit_item_path(@item), class:"item-edit" %>
+        <%= link_to '商品削除', item_path(@item), method: :delete, class:"item-delete" %>
+      </div>
+    <% end %>
+    <%= image_tag @item.image, class:"show-item-image" %>
+    <table border="2" class="show-item-table">
+      <tr>
+        <td>商品名</td>
+        <td><%= @item.description %></td>
+      </tr>
+      <tr>
+        <td>送料</td>
+        <td><%= @item.ship_expense.name %></td>
+      </tr>
+      <tr>
+        <td>生産地</td>
+        <td><%= @item.prefecture.name %></td>
+      </tr>
+      <tr>
+        <td>生産農園</td>
+        <td><%= link_to @item.farmer.farm.name, farm_path(@item.farmer.farm.id), class:"show-item-link" %>
+      <tr>
+        <td>発送までにかかる日数</td>
+        <td><%= @item.period.name %></td>
+      </tr>
+      <tr>
+        <td>価格</td>
+        <td><%= @item.price %></td>
+      </tr>
+    </table>
   </div>
 </div>

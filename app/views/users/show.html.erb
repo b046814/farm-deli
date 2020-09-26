@@ -1,16 +1,16 @@
 <%= render partial: 'shares/bar_menu' %>
 <h3>お気に入りの農園一覧</h3>
 <div class="main-bar-head">
-<% @user.farms.each do |farm| %>
+  <% @user.farms.each do |farm| %>
   <div class="each-farm">
-  <%= farm.name %>
-<%= link_to farm_path(farm), class:"each-farm-name" do %><br>
-<%= image_tag farm.images.first, class:"farm-image" %><br>
-＜生産品目＞<br>
-<% farm.tags.each do |tag| %>
-  <div class="each-farm-tag"><%= "#{tag.text} " %></div>
-<% end %>
-<% end %>
-</div>
-<% end %>
+    <%= farm.name %>
+    <%= link_to farm_path(farm), class:"each-farm-name" do %><br>
+    <%= image_tag farm.images.first, class:"farm-image" %><br>
+    ＜生産品目＞<br>
+    <% farm.tags.each do |tag| %>
+      <div class="each-farm-tag"><%= "#{tag.text} " %></div>
+    <% end %>
+    <% end %>
+  </div>
+  <% end %>
 </div>

@@ -8,9 +8,9 @@ class FarmsController < ApplicationController
   end
 
   def create
-    @farm = Farm.new(farms_params)
+    @farm = Farm.new(farm_params)
     if params[:farm][:text]
-    tag_list = params[:farm][:text].split(",")
+      tag_list = params[:farm][:text].split(",")
     end
     if @farm.save
       @farm.save_tag(tag_list)
@@ -37,13 +37,13 @@ class FarmsController < ApplicationController
         image.purge
       end
     end
-    if farms_params[:images]
-      @farm.images.attach(farms_params[:images])
+    if farm_params[:images]
+      @farm.images.attach(farm_params[:images])
     end
     if params[:farm][:text]
-    tag_list = params[:farm][:text].split(",")
+      tag_list = params[:farm][:text].split(",")
     end
-    if @farm.update(name: farms_params[:name], prefecture_id: farms_params[:prefecture_id], description: farms_params[:description], feature: farms_params[:feature], farmer_id: farms_params[:farmer_id])
+    if @farm.update(name: farm_params[:name], prefecture_id: farm_params[:prefecture_id], description: farm_params[:description], feature: farm_params[:feature], farmer_id: farm_params[:farmer_id])
       @farm.save_tag(tag_list)  
       redirect_to farm_path(@farm.id)
     else
@@ -61,7 +61,7 @@ class FarmsController < ApplicationController
 
   private
 
-  def farms_params
+  def farm_params
     params.require(:farm).permit(:name, :prefecture_id, :description, :feature, images: []).merge(farmer_id: current_farmer.id)
   end
 

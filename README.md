@@ -61,7 +61,6 @@ HTML / CSS / Ruby / Ruby on Rails / Javascript / MySQL / GitHub / heroku / Visua
 ![チャット機能gif](https://user-images.githubusercontent.com/68994139/94330649-68e90100-0001-11eb-9b08-7e61e737fbff.gif)
 
 # 実装予定の機能
-- チャット機能
 - 商品購入機能
 
 # バージョン

@@ -1,11 +1,7 @@
 <%= render partial: 'shares/bar_menu' %>
 
 <div class="main-bar-bottom">
-<% @items.each do |item| %>
-<div class="each-item">
-<%= image_tag item.image, class:"item-image" %><br>
-<%= item.description %><br>
-<%= item.prefecture.name %>産<%= "  #{item.price}" %>円<br>
-</div>
-<% end %>
+  <% @items.each do |item| %>
+    <%= render "shares/each_item", item: item %>
+  <% end %>
 </div>

@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :set_room, only: [:show, :destroy]
   
   def index
     if user_signed_in?
@@ -21,7 +22,6 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find(params[:id])
     @user = @room.user
     @farmer = @room.farmer
     @message = Message.new
@@ -29,7 +29,6 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-    @room = Room.find(params[:id])
     if @room.destroy
       redirect_to root_path
     else
@@ -42,4 +41,9 @@ class RoomsController < ApplicationController
   def room_params
     params.permit(:farmer_id).merge(user_id: current_user.id)
   end
+
+  def set_room
+    @room = Room.find(params[:id])
+  end
+
 end
