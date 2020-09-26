@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :period
   belongs_to_active_hash :ship_expense
+  has_many :orders, dependent: :destroy
 
   validates :name, :image, :description, :ship_expense_id, :prefecture_id, :period_id, :price, presence: true
   validates :ship_expense_id, :prefecture_id, :period_id, numericality: { other_than: 1 }
