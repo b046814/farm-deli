@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_25_144139) do
+ActiveRecord::Schema.define(version: 2020_09_26_012510) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -93,6 +93,15 @@ ActiveRecord::Schema.define(version: 2020_09_25_144139) do
     t.index ["farmer_id"], name: "index_items_on_farmer_id"
   end
 
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content", null: false
+    t.boolean "id_user", null: false
+    t.bigint "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+  end
+
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "farmer_id", null: false
@@ -133,6 +142,7 @@ ActiveRecord::Schema.define(version: 2020_09_25_144139) do
   add_foreign_key "favorites", "farms"
   add_foreign_key "favorites", "users"
   add_foreign_key "items", "farmers"
+  add_foreign_key "messages", "rooms"
   add_foreign_key "rooms", "farmers"
   add_foreign_key "rooms", "users"
 end
