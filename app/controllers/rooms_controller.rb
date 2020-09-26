@@ -22,6 +22,10 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @user = @room.user
+    @farmer = @room.farmer
+    @message = Message.new
+    @messages = @room.messages
   end
 
   def destroy
