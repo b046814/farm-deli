@@ -1,0 +1,21 @@
+<%= render partial: 'shares/bar_menu' %>
+<div class="chat-room">
+  <div class="chat-header">
+  <div class="chat-header-name">
+  <%if user_signed_in?%>
+  <%= @room.farmer.farm.name %>
+  <% end %>
+  <% if farmer_signed_in?%>
+  <%= @room.user.nickname %>
+  <% end %>
+  </div>
+  <%= link_to "チャットを削除する", room_path(@room), method: :delete, class:"chat-header-delete" %>
+  </div>
+
+  <div class="chat-main">
+  </div>
+
+  <div class="chat-input">
+  </div>
+</div>
+

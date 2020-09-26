@@ -6,6 +6,12 @@
   <%= render partial: "shares/favorite", locals: { farm: @farm } %>
 </div>
 </div>
+<% if user_signed_in? %>
+<%= form_with model: @room, local: true do |form| %>
+<input value=<%=@farm.farmer.id%> type="hidden" name='farmer_id'>
+<%= form.submit "チャットルーム作成"%>
+<% end %>
+<% end %>
 <% if current_farmer == @farm.farmer %>
 <%= link_to '紹介ページ編集', edit_farm_path(@farm.id) %>
 <%= link_to '紹介ページ削除', farm_path(@farm), method: :delete %>

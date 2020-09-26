@@ -8,6 +8,7 @@
       <li><%= link_to current_user.nickname, '#', class:'bar-link name' %></li>
       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'bar-link login-out' %></li>
       <li><%= link_to 'お気に入り農園', user_path(current_user.id), class:'bar-link my-favorite' %></li>
+      <li><%= link_to 'チャットルーム一覧', rooms_path, class:'bar-link my-favorite' %></li>
     </ul>
   <% elsif farmer_signed_in? %>
     <div class='farmer-login'>
@@ -17,6 +18,7 @@
       <% unless current_farmer.farm %>
         <li><%= link_to '農園紹介ページ作成', new_farm_path, class:'bar-link my-favorite' %><li>
       <% end%>
+        <li><%= link_to 'チャットルーム一覧', rooms_path, class:'bar-link my-favorite' %><li>
     </ul>
     <ul class='lists-left'>
     <li><%= link_to '商品出品', new_item_path, class:"new-item-link" %></li>

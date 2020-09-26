@@ -1,0 +1,11 @@
+<%= render partial: 'shares/bar_menu' %>
+<div class="room-index">
+<% @rooms.each do |room| %>
+<% if user_signed_in? %>
+<%= link_to room.farmer.farm.name, room_path(room), class:"room-index-link" %>
+<% end %>
+<% if farmer_signed_in? %>
+<%= link_to room.user.nickname, room_path(room), class:"room-index-link" %>
+<% end %>
+<% end %>
+</div>
