@@ -1,7 +1,7 @@
 class OrderAddress
   include ActiveModel::Model
   attr_accessor :order_address, :user_id, :item_id, :item_count, :token, :price, \
-                :postal_code, :prefecture_id, :city_name, :block_number, :building, :phone_number
+                :postal_code, :prefecture_id, :city_name, :block_number, :building, :phone_number, :item_count, :amount
 
   POSTAL_CODE_REGEX = /\A[0-9]{3}-[0-9]{4}\z/.freeze
   PHONE_NUMBER_REGEX = /\A[0-9]{1,11}\z/.freeze

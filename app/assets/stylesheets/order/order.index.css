@@ -1,0 +1,123 @@
+.order-form{
+  width: 70%;
+  margin: 30px auto 0;
+  border: 1px solid black;
+}
+
+.order-title{
+  text-align: center;
+}
+
+.order-subtitle{
+  text-align: center;
+}
+
+.item-description{
+  height: 25%;
+  width: 100%;
+  margin: 20px auto 0;
+  display:flex;
+  padding: 0 10px;
+}
+
+.item-description-image{
+  display: block;
+  width: 50%;
+}
+
+.item-description-sub{
+  width: 50%;
+  margin: 20px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-description-price{
+  margin-bottom: 10px;
+}
+
+.item-description-count{
+  margin-bottom: 10px;
+}
+
+.item-description-amount{
+  margin-bottom: 10px;
+  padding: 5px;
+  font-weight: bold;
+  border: 1px solid black;
+}
+
+.order-text{
+  margin-bottom: 10px;
+}
+
+.exp{
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.order-hidden{
+  display: none;
+}
+
+.order-area{
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  height: 30px;
+  display: flex;
+}
+
+.order-area>textarea{
+  width: 13%;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.order-submit{
+  margin-bottom: 10px;
+}
+
+.order-select{
+  margin-bottom: 10px;
+}
+
+.order-text input[type="text"]{
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 black inset;
+}
+
+.order-text label{
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.order-select label{
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.order-select>select{
+  width: 50%;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 black inset;
+}
+
+.order-submit input[type="submit"]{
+  width: 100%;
+  height: 31px;
+  background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+  border-radius: 3px;
+  border: 1px #a88734 solid;
+  margin-top: 20px;
+}
+
+.order-card{
+  padding: 0 20%;
+}
+
+.order-address{
+  padding: 0 20%;
+}
