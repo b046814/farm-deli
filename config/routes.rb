@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    resources :orders, only: [:index, :create]
   end
   resources :farms, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :favorites, only: [:create, :destroy]

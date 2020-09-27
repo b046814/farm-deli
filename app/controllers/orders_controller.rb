@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
 
-  def new
+  def index
     @item = Item.find(params[:id])
     @order_address = OrderAdress.new
   end
