@@ -2,7 +2,7 @@
 #### farm-deli
 
 # 概要
-ユーザー（生産者）は農園紹介ページの作成、編集、削除ができます。また商品の出品、編集、削除や、ユーザー（購入者）から質問やコメントがあればチャットができます。
+ユーザー（生産者）は農園紹介ページの作成、編集、削除ができます。また商品の出品、編集、削除や、ユーザー（購入者）から質問やコメントがあればチャットができます。<br>
 ユーザー（購入者）は商品の購入と、ユーザー（生産者）とチャットができます。
 
 # 制作背景
@@ -14,7 +14,7 @@ heroku(アプリケーション完成後はAWSでデプロイ予定です)
 
 # アカウント
 ### 認証ID/Pass
-ID: admin
+ID: admin<br>
 Pass: 2222
 
 ### テスト用アカウント
@@ -29,11 +29,10 @@ Pass: 2222
 ## 購入者
 トップページ上部の左側にあるお客様新規登録ボタンをクリック→新規登録ページに移動→必要事項を入力すると登録完了  
 ログイン後は農園ページへのいいね（親指を上げているボタンクリック）、いいねをした農園一覧表示、生産者(農園)とのチャット、商品の購入ができます。  
-**※農園へのコメント機能、商品の購入機能はまだ実装していません。**
+
 ## 生産者
 トップページ上部右側にある生産者様新規登録ボタンをクリック→新規登録ページに移動→必要事項を入力すると登録完了  
 ログイン後は農園ページの作成(1農園まで)・編集・削除、商品の出品・編集・購入履歴のない商品については削除ができます。また、購入者が農園紹介ページからチャットルームを作った場合には購入者とチャットができます。
-**※ツイートの投稿機能、商品の編集・削除機能はまだ実装していません。**
 
 # 使用技術
 HTML / CSS / Ruby / Ruby on Rails / Javascript / MySQL / GitHub / heroku / Visual Studio Code / Trello / (AWS予定)
@@ -52,7 +51,7 @@ HTML / CSS / Ruby / Ruby on Rails / Javascript / MySQL / GitHub / heroku / Visua
 ![タグ付機能gif](https://user-images.githubusercontent.com/68994139/94009093-f0a2f580-fdde-11ea-8310-a0c4196576b9.gif)
 
 - いいね機能
-![いいね機能gif](https://user-images.githubusercontent.com/68994139/94008894-a883d300-fdde-11ea-80b2-f6c1eab5186c.gif)
+![いいね機能gif](https://user-images.githubusercontent.com/68994139/94392621-c01edb00-0193-11eb-9ec6-2b72a6a9eea0.gif)
 
 - 品目検索機能
 ![検索機能gif](https://user-images.githubusercontent.com/68994139/94102365-ef200e80-fe6c-11ea-929c-6d66e7cb492f.gif)
@@ -60,11 +59,15 @@ HTML / CSS / Ruby / Ruby on Rails / Javascript / MySQL / GitHub / heroku / Visua
 - チャット機能
 ![チャット機能gif](https://user-images.githubusercontent.com/68994139/94330649-68e90100-0001-11eb-9b08-7e61e737fbff.gif)
 
-# 実装予定の機能
 - 商品購入機能
+![商品購入機能](https://user-images.githubusercontent.com/68994139/94392626-c2813500-0193-11eb-9ab9-de5320d03bcd.gif)
+
+# 実装予定の機能
+- 結合テストコード
+- AWSでのデプロイ
 
 # バージョン
-ruby 2.6.5
+ruby 2.6.5<br>
 rails 6.0.3.3
 
 # テーブル設計

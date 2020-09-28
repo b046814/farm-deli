@@ -52,3 +52,17 @@
   font-size: 22px;
   padding: 5px;
 }
+
+.order-index{
+  margin-bottom: 20px;
+}
+
+.order-index input[type="text"]{
+  width: 30%;
+  border-radius: 3px;
+}
+
+.order-index input[type="submit"]{
+  background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+  width: 65%;
+}

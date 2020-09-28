@@ -1,5 +1,7 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :destroy]
+  before_action :authenticate_user!, only: :create
+  before_action :move_to_root, only: [:show, :destroy]
   
   def index
     if user_signed_in?
@@ -15,7 +17,7 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     if @room.save
-      redirect_to root_path
+      redirect_to room_path(@room)
     else
       redirect_to root_path
     end
@@ -44,6 +46,13 @@ class RoomsController < ApplicationController
 
   def set_room
     @room = Room.find(params[:id])
+  end
+
+  def move_to_root
+    return if user_signed_in? && @room.user_id == current_user.id
+    return if farmer_signed_in? && @room.farmer_id == current_farmer.id
+
+    redirect_to root_path
   end
 
 end

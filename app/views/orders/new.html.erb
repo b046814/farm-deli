@@ -1,0 +1,93 @@
+<%= render partial: 'shares/bar_menu_second' %>
+<h2 class="order-title">ご購入ページ</h2>
+<div class="order-form">
+  <h3 class="order-subtitle">ご購入内容ご確認</h3>
+  <div class="item-description">
+    <%= image_tag @item.image, class:"item-description-image" %>
+    <div class="item-description-sub">
+      <div class="item-description-price" >
+        <%= @item.farmer.farm.name %>
+      </div>
+      <div class="item-description-price" >
+        <%= @item.description %>
+      </div>
+      <div class="item-description-price" >
+        <%= @item.price %>円
+      </div>
+      <div class="item-description-count">
+        <%= @order_address.item_count %>セット
+      </div>
+      <div class="item-description-amount">
+        合計<%= @order_address.amount %>円
+      </div>
+    </div>
+  </div>
+  <%= form_with model: @order_address, url: item_orders_path(@item), id: "order-address", class:"order-address-form", local: true do |form| %>
+    <div class="error-messages">
+    <%= render "shares/error_messages", model: form.object %>
+  </div>
+    <div class="order-card">
+    <h3 class="order-subtitle">カード情報入力</h3>
+    <div class="order-text">
+      <%= form.label :number, "カード番号" %><b>  必須</b><br>
+      <%= form.text_field :number, placeholder:"ハイフン-は含まず半角数字", id:"card-number", maxlength:"16" %>
+    </div>
+    <div class="order-text">
+      <%= form.label :cvc, "セキュリティ番号" %><b>  必須</b><br>
+      <%= form.text_field :cvc, placeholder:"カード裏面の3桁もしくは4桁の番号", id:"card-cvc", maxlength:"4" %>
+    </div>
+    <div>
+    <label class="exp">有効期限<b>  必須</b></label>
+    </div>
+    <div class="order-area">
+      <%= form.text_area :exp_month, placeholder:"(例)3", id:"card-exp-month", class:"exp-month" %>
+      <p>月</p>
+      <%= form.text_area :exp_year, placeholder:"(例)21", id:"card-exp-year", class:"exp-year" %>
+      <p>年</p>
+    </div>
+    </div>
+    <div class="order-hidden">
+      <%= form.label :item_count, "購入数量" %>
+      <%= form.text_field :item_count, placeholder:"半角数字で入力" %>
+    </div>
+    <div class="order-hidden">
+      <%= form.label :amount, "合計金額" %>
+      <%= form.text_field :amount %>
+    </div>
+    <div class="order-hidden">
+      <%= form.label :item_id, "商品番号" %>
+      <%= form.text_field :item_id %>
+    </div>
+    <h3 class="order-subtitle">送付先住所入力</h3>
+    <div class="order-address">
+    <div class="order-text">
+      <%= form.label :postal_code, "郵便番号" %><b>  必須</b><br>
+      <%= form.text_field :postal_code, placeholder:"(例)111-1111" %>
+    </div>
+    <div class="order-select">
+      <%= form.label :prefecture_id, "都道府県" %><b>  必須</b><br>
+      <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {} ) %>
+    </div>
+    <div class="order-text">
+      <%= form.label :city, "市区町村" %><b>  必須</b><br>
+      <%= form.text_field :city, placeholder:"(例)高尾市松前町" %>
+    </div>
+    <div class="order-text">
+      <%= form.label :block_number, "番地" %><b>  必須</b><br>
+      <%= form.text_field :block_number, placeholder:"(例)1-1-1" %>
+    </div>
+    <div class="order-text">
+      <%= form.label :building, "建物" %><br>
+      <%= form.text_field :building, placeholder:"(例)サンプル999号室" %>
+    </div>
+    <div class="order-text">
+      <%= form.label :phone_number, "電話番号" %><b>  必須</b><br>
+      <%= form.text_field :phone_number, placeholder:"ハイフン-は含まず半角数字", maxlength:"11" %>
+    </div>
+    <div class="order-submit">
+      <%= form.submit "購入" %>
+    </div>
+    </div>
+  <% end %>
+
+</div>
