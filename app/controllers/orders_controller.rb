@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
-
-  def index
-    @item = Item.find(params[:item_id])
+  before_action :set_item, only: [:new, :create]
+  before_action :authenticate_user!
+  
+  def new
     @order_address = OrderAddress.new
     @order_address.item_id = @item.id 
     @order_address.item_count = params[:count]
@@ -9,9 +10,12 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order_address = OrderAddress.new(order_params)
-    @order_address.token = params[:token]
-    if @order_address.save
+    @order_address = OrderAddress.new(order_params[:order_address])
+    @order_address.user_id = order_params[:user_id]
+    @order_address.token = order_params[:token]
+    if @order_address.valid?
+      payment
+      @order_address.save
       redirect_to root_path
     else
       render :new
@@ -20,8 +24,21 @@ class OrdersController < ApplicationController
 
   private
 
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
   def order_params
-    params.require(:order_address).permit(:item_id, :item_count, :postal_code, :prefecture_id, :city, :block_number, :building, :phone_number).merge(user_id: current_user.id)
+    params.permit(:token, order_address: [:item_id, :item_count, :postal_code, :prefecture_id, :city, :block_number, :building, :phone_number, :amount]).merge(user_id: current_user.id)
+  end
+
+  def payment
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp::Charge.create(
+      amount: order_params[:order_address][:amount],
+      card: order_params[:token],
+      currency: 'jpy'
+    )
   end
 
 end

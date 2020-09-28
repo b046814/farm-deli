@@ -22,7 +22,10 @@
       </div>
     </div>
   </div>
-  <%= form_with model: @order_address, url: item_orders_path(@item), id: "order_address", class:"order-address-form", local: true do |form| %>
+  <%= form_with model: @order_address, url: item_orders_path(@item), id: "order-address", class:"order-address-form", local: true do |form| %>
+    <div class="error-messages">
+    <%= render "shares/error_messages", model: form.object %>
+  </div>
     <div class="order-card">
     <h3 class="order-subtitle">カード情報入力</h3>
     <div class="order-text">

@@ -1,16 +1,43 @@
 <%= render partial: 'shares/bar_menu' %>
-<h3>お気に入りの農園一覧</h3>
-<div class="main-bar-head">
+<div class="mypage">
+<h3 class="mypage-title">お気に入りの農園一覧</h3>
+<div class="my-main-bar-head">
   <% @user.farms.each do |farm| %>
-  <div class="each-farm">
+  <div class="my-each-farm">
     <%= farm.name %>
-    <%= link_to farm_path(farm), class:"each-farm-name" do %><br>
-    <%= image_tag farm.images.first, class:"farm-image" %><br>
+    <%= link_to farm_path(farm), class:"my-each-farm-name" do %><br>
+    <%= image_tag farm.images.first, class:"my-farm-image" %><br>
     ＜生産品目＞<br>
     <% farm.tags.each do |tag| %>
-      <div class="each-farm-tag"><%= "#{tag.text} " %></div>
+      <div class="my-each-farm-tag"><%= "#{tag.text} " %></div>
     <% end %>
     <% end %>
   </div>
   <% end %>
 </div>
+
+<h3 class="mypage-title">購入履歴</h3>
+<div class="order-list">
+  <% @orders.each do |order| %>
+  <table border="2" class="order-table">
+      <tr>
+        <td>商品名</td>
+        <td><%= order.item.description %></td>
+      </tr>
+      <tr>
+        <td>購入数量</td>
+        <td><%= order.item_count %></td>
+      </tr>
+      <tr>
+        <td>お買い上げ金額</td>
+        <td><%= "#{order.item.price * order.item_count}円" %></td>
+      </tr>
+      <tr>
+        <td>生産農園</td>
+        <td><%= link_to order.item.farmer.farm.name, farm_path(order.item.farmer.farm.id), class:"show-item-link" %>
+      </tr>
+  </table>
+  <% end %>
+</div>
+</div>
+  

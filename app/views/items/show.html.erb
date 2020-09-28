@@ -12,12 +12,14 @@
     <% end %>
     <%= image_tag @item.image, class:"show-item-image" %>
 
-    <%= form_with(url: item_orders_path(@item), local: true, method: :get, class: 'order-index') do |form| %>
-      <%= form.label :count, "購入数量(半角数字)", class:"order-index-label" %>
-      <%= form.text_field :count, placeholder:"(例)3", class:"order-index-input" %>
-      <%= form.submit "購入ページへ進む", class:"order-index-submit" %>
+    <% unless farmer_signed_in? %>
+      <%= form_with(url: new_item_order_path(@item), local: true, method: :get, class: 'order-index') do |form| %>
+        <%= form.label :count, "購入数量(半角数字)", class:"order-index-label" %><br>
+        <%= form.text_field :count, placeholder:"(例)3", class:"order-index-input" %>
+        <%= form.submit "購入ページへ進む", class:"order-index-submit" %>
+      <% end %>
     <% end %>
-    
+
     <table border="2" class="show-item-table">
       <tr>
         <td>商品名</td>
