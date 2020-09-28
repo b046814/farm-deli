@@ -5,7 +5,7 @@
       <%= link_to room.farmer.farm.name, room_path(room), class:"room-index-link" %>
     <% end %>
     <% if farmer_signed_in? %>
-      <%= link_to room.user.nickname, room_path(room), class:"room-index-link" %>
+      <%= link_to "#{room.user.last_name}様", room_path(room), class:"room-index-link" %>
     <% end %>
   <% end %>
 </div>
