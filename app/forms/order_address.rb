@@ -5,7 +5,7 @@ class OrderAddress
 
   POSTAL_CODE_REGEX = /\A[0-9]{3}-[0-9]{4}\z/.freeze
   PHONE_NUMBER_REGEX = /\A[0-9]{1,11}\z/.freeze
-  validates :token, :user_id, :item_count, :amount, :item_id, :postal_code, :prefecture_id, :city, :block_number, :phone_number, presence: true
+  validates :token, :item_count, :amount, :postal_code, :prefecture_id, :city, :block_number, :phone_number, presence: true
   validates :postal_code, format: { with: POSTAL_CODE_REGEX }
   validates :phone_number, format: { with: PHONE_NUMBER_REGEX }
   validates :prefecture_id, numericality: { other_than: 1 }
