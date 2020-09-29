@@ -19,10 +19,10 @@ Pass: 2222
 
 ### テスト用アカウント
 #### 購入者用
-メールアドレス:sample@sample  
+メールアドレス:sample@sample.com  
 パスワード:111aaa
 #### 生産者用
-メールアドレス:apple@apple  
+メールアドレス:apple@apple.com  
 パスワード:111aaa
 
 # 利用方法

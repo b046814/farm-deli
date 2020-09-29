@@ -9,7 +9,7 @@ class Item < ApplicationRecord
 
   validates :name, :image, :description, :ship_expense_id, :prefecture_id, :period_id, :price, presence: true
   validates :ship_expense_id, :prefecture_id, :period_id, numericality: { other_than: 1 }
-  validates :name, format: { with: /\A[ァ-ン]+\z/, message: '全角カタカナで入力して下さい' }
+  validates :name, format: { with: /\A[ァ-ヶー－]+\z/, message: '全角カタカナで入力して下さい' }
   validates :price, format: { with: /\A[0-9]+\z/ }
   validates :price, numericality: { greater_than_or_equal_to: 100 }
 
