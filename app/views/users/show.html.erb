@@ -38,7 +38,7 @@
       </tr>
       <tr>
         <td>ご購入日</td>
-        <td><%= l order.created_at %>
+        <td><%= order.created_at.to_s(:datetime_jp) %>
       </tr>
   </table>
   <% end %>

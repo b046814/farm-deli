@@ -18,13 +18,13 @@
         <div class="right-message">
           <%= @user.last_name %><br>
           <div class="message-content"><%= m.content %></div>
-          <%= l m.created_at %>
+          <%= m.created_at.to_s(:datetime_jp) %>
         </div>
       <% else %>
         <div class="left-message">
           <%= @farmer.last_name %><br>
           <div class="message-content"><%= m.content %></div>
-          <%= l m.created_at %>
+          <%= m.created_at.to_s(:datetime_jp) %>
         </div>
       <% end %>
     <% end %>

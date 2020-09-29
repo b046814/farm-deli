@@ -8,8 +8,6 @@ class MessagesController < ApplicationController
     else
       @message.id_user = false
     end
-    @message.valid?
-binding.pry
     if @message.save
       redirect_to room_path(@room)
     else
