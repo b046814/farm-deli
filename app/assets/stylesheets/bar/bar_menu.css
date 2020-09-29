@@ -5,7 +5,7 @@
 }
 
 .bar-below{
-  width: 80%;
+  width: 90%;
 }
 
 .bar-before{
@@ -17,11 +17,13 @@
 .lists-left{
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .lists-right{
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .bar-link{
@@ -53,6 +55,7 @@
 .farmer-login{
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .new-item-link{

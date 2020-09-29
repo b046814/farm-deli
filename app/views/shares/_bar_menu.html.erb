@@ -4,24 +4,28 @@
 <div class='bar'>
 <div class='bar-below'>
   <% if user_signed_in? %>
+  <div class='farmer-login'>
     <ul class='lists-left'>
       <li><%= link_to current_user.nickname, '#', class:'bar-link name' %></li>
       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'bar-link login-out' %></li>
+    </ul>
+    <ul class='lists-right'>
       <li><%= link_to 'マイページ', user_path(current_user.id), class:'bar-link my-favorite' %></li>
       <li><%= link_to 'チャットルーム一覧', rooms_path, class:'bar-link my-favorite' %></li>
     </ul>
+  </div>
   <% elsif farmer_signed_in? %>
     <div class='farmer-login'>
     <ul class='lists-left'>
       <li><%= link_to current_farmer.nickname, '#', class:'bar-link name' %></li>
       <li><%= link_to 'ログアウト', destroy_farmer_session_path, method: :delete, class:'bar-link login-out' %></li>
+    </ul>
+    <ul class='lists-right'>
       <% unless current_farmer.farm %>
         <li><%= link_to '農園紹介ページ作成', new_farm_path, class:'bar-link my-favorite' %><li>
       <% end%>
-        <li><%= link_to 'チャットルーム一覧', rooms_path, class:'bar-link my-favorite' %><li>
-    </ul>
-    <ul class='lists-left'>
-    <li><%= link_to '商品出品', new_item_path, class:"new-item-link" %></li>
+      <li><%= link_to 'チャットルーム一覧', rooms_path, class:'bar-link my-favorite' %><li>
+      <li><%= link_to '商品出品', new_item_path, class:"new-item-link" %></li>
     </ul>
     </div>
   <% else %>
