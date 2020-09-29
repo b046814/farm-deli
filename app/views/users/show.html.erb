@@ -36,6 +36,10 @@
         <td>生産農園</td>
         <td><%= link_to order.item.farmer.farm.name, farm_path(order.item.farmer.farm.id), class:"show-item-link" %>
       </tr>
+      <tr>
+        <td>ご購入日</td>
+        <td><%= l order.created_at %>
+      </tr>
   </table>
   <% end %>
 </div>
