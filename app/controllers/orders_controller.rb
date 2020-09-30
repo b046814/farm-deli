@@ -3,10 +3,14 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   
   def new
-    @order_address = OrderAddress.new
-    @order_address.item_id = @item.id 
-    @order_address.item_count = params[:count]
-    @order_address.amount = (@item.price * params[:count].to_i)
+    if params[:count].to_i == 0 || params[:count] == ""
+      redirect_to item_path(@item)
+    else
+      @order_address = OrderAddress.new
+      @order_address.item_id = @item.id 
+      @order_address.item_count = params[:count]
+      @order_address.amount = (@item.price * params[:count].to_i)
+    end
   end
 
   def create

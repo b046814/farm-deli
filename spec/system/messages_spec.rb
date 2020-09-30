@@ -8,20 +8,28 @@ RSpec.describe "メッセージ投稿機能", type: :system do
 
   context '投稿に失敗した時' do
     it '送る値が空の為、メッセージの送信に失敗すること(消費者)' do
+      # 消費者としてログイン
       sign_in_user(@room.user)
+      # チャットルームへ移動
       visit room_path(@room)
+      # メッセージを入力しない状態で送信ボタンを押下し、メッセージの数が変わっていないことを確認
       expect{
         find('input[name="commit"]').click 
       }.not_to change { Message.count }
+      # チャットルームにいることを確認
       expect(current_path).to eq room_path(@room)
     end
 
     it '送る値が空の為、メッセージの送信に失敗すること(生産者)' do
+      # 消費者としてログイン
       sign_in_farmer(@room.farmer)
+      # チャットルームへ移動
       visit room_path(@room)
+      # メッセージを入力しない状態で送信ボタンを押下し、メッセージの数が変わっていないことを確認
       expect{
         find('input[name="commit"]').click 
       }.not_to change { Message.count }
+      # チャットルームにいることを確認
       expect(current_path).to eq room_path(@room)
     end
   end
