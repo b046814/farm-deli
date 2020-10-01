@@ -45,3 +45,29 @@
   margin-left: 10px;
   margin-bottom: 10px;
 }
+
+.farm-show-button{
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px;
+  color: black;
+  border-radius: 5px;
+  margin-right: 10px;
+  border: 1px solid lightblue;
+  background-color: lightblue;
+}
+
+.intro-destroy{
+  border: 1px solid pink;
+  background-color: pink;
+}
+
+.tweet-create{
+  border: 1px solid lightseagreen;
+  background-color: lightseagreen;
+}
+
+.tweet-list{
+  border: 1px solid rgb(219, 219, 103);
+  background-color: rgb(219, 219, 103);
+}

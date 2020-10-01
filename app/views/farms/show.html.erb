@@ -13,9 +13,11 @@
   <% end %>
 <% end %>
 <% if current_farmer == @farm.farmer %>
-  <%= link_to '紹介ページ編集', edit_farm_path(@farm.id) %>
-  <%= link_to '紹介ページ削除', farm_path(@farm), method: :delete %>
+  <%= link_to '紹介ページ編集', edit_farm_path(@farm.id), class:"farm-show-button" %>
+  <%= link_to '紹介ページ削除', farm_path(@farm), class:"farm-show-button intro-destroy", method: :delete %>
+  <%= link_to 'ツイート作成', new_farm_tweet_path(@farm), class:"farm-show-button tweet-create" %>
 <% end %>
+<%= link_to 'ツイート一覧', farm_tweets_path(@farm), class:"farm-show-button tweet-list" %>
 <h4 class="farm-small-title">生産品目</h4>
 <div class="item-tag">
   <% @farm_tags.each do |tag| %>

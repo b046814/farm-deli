@@ -1,0 +1,26 @@
+<%= render 'shares/bar_menu_second' %>
+<h2 class="tweet-new-title">ツイート作成ページ</h2>
+
+  <%= form_with model: [@farm, @tweet], local: true do |form| %>
+  <div class="error-messages">
+    <%= render "shares/error_messages", model: form.object %>
+  </div>
+
+  <div class="tweet-new">
+    <div class="tweet-inner">
+      <div class='tweet-text'>
+        <%= form.label :content, 'ツイート記事を入力して下さい' %><br>
+        <%= form.text_area :content %>
+      </div>
+      <div class="tweet-image">
+        <%= form.label :image, 'ツイート画像を選択して下さい(1個)' %><br>
+        <%= form.file_field :image, id: 'farm-image1' %>
+      </div>
+      <div id='image-list'></div>
+      <div class='tweet-submit'>
+        <%= form.submit '作成' %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
