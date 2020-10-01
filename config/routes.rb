@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
   resources :farms, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :favorites, only: [:create, :destroy]
+    resources :tweets, only: [:new, :create, :show, :edit, :update, :destroy]
   end
   resources :users, only: :show
   resources :tags, only: :show
