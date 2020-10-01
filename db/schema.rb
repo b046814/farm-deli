@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_232807) do
+ActiveRecord::Schema.define(version: 2020_10_01_050509) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -140,6 +140,14 @@ ActiveRecord::Schema.define(version: 2020_09_26_232807) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content", null: false
+    t.bigint "farm_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["farm_id"], name: "index_tweets_on_farm_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -171,4 +179,5 @@ ActiveRecord::Schema.define(version: 2020_09_26_232807) do
   add_foreign_key "orders", "users"
   add_foreign_key "rooms", "farmers"
   add_foreign_key "rooms", "users"
+  add_foreign_key "tweets", "farms"
 end
