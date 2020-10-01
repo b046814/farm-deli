@@ -1,0 +1,17 @@
+<%= render 'shares/bar_menu' %>
+<h2 class="tweet-new-title">ツイート一覧</h2>
+<h3 class="tweet-new-title"><%=@farm.name%></h3>
+<div class="tweet-index">
+  <div class="tweet-index-inner">
+    <% @tweets.each do |tweet| %>
+      <div class="tweet-index-image" >
+        <%= image_tag tweet.image.variant(resize_to_fill: [700, 500]).processed, class:'tweet-pic' %>
+        <p><%= tweet.content %></p>
+          <% if farmer_signed_in? && current_farmer.farm.id == @farm.id%>
+            <%= link_to '編集', edit_farm_tweet_path(@farm, tweet), class:"tweet-edit" %>
+            <%= link_to '削除', farm_tweet_path(@farm, tweet), class:"tweet-destroy", method: :delete %>
+          <% end %>
+      </div>
+      <% end %>
+  </div>
+</div>
