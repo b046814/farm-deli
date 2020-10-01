@@ -140,6 +140,7 @@ rails 6.0.3.3
 - has_many :users, through: :favorites
 - has_many :farm_tags
 - has_many :tags, through: :farm_tags
+- has_many :tweets
 
 ## favorites テーブル
 
@@ -241,3 +242,14 @@ rails 6.0.3.3
 
 ### Association
 - belongs_to :order
+
+## tweets テーブル
+
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| content          | text       | null: false                    | 
+| farm             | references | null: false, foreign_key: true |
+*imageはActiveStorageで紐付けます*
+
+### Association
+- belongs_to :farm
