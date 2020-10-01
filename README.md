@@ -1,10 +1,10 @@
 # アプリ名
-### farm-deli
+## farm-deli
 
 # 概要
 - 有機農産物の通販アプリです。  
 ユーザーを消費者と生産者の２つのグループに分けて管理しています。  
-ユーザー（生産者）は農園紹介ページの作成、編集、削除ができます。また商品の出品、編集、削除や、ユーザー（消費者）から質問やコメントがあればチャットができます。<br>
+ユーザー（生産者）は農園紹介ページの作成、編集、削除ができます。農園に関するツイートの投稿、編集、削除もできます。また商品の出品、編集、削除や、ユーザー（消費者）から質問やコメントがあればチャットができます。<br>
 ユーザー（消費者）は商品の購入と、ユーザー（生産者）とチャットができます。
 
 # 制作背景
@@ -57,23 +57,25 @@ HTML / CSS / Ruby / Ruby on Rails / Javascript / MySQL / GitHub / heroku / Visua
 - 農園紹介機能↓
 ![農園紹介機能gif](https://user-images.githubusercontent.com/68994139/94008950-ba657600-fdde-11ea-8c3e-ed5c57dd33cf.gif)
 
-#### ・タグ付機能↓
+- タグ付機能↓
 ![タグ付機能gif](https://user-images.githubusercontent.com/68994139/94009093-f0a2f580-fdde-11ea-8310-a0c4196576b9.gif)
 
-#### ・いいね機能↓
+- いいね機能↓
 ![いいね機能gif](https://user-images.githubusercontent.com/68994139/94392621-c01edb00-0193-11eb-9ec6-2b72a6a9eea0.gif)
+
+- ツイート機能↓
+![ツイート機能gif](https://user-images.githubusercontent.com/68994139/94798322-709f1000-041c-11eb-87c0-f32a4d2fce2a.gif)
 
 - 品目検索機能↓
 ![検索機能gif](https://user-images.githubusercontent.com/68994139/94102365-ef200e80-fe6c-11ea-929c-6d66e7cb492f.gif)
 
-#### ・チャット機能↓
+- チャット機能↓
 ![チャット機能gif](https://user-images.githubusercontent.com/68994139/94330649-68e90100-0001-11eb-9b08-7e61e737fbff.gif)
 
 - 商品購入機能↓
 ![商品購入機能](https://user-images.githubusercontent.com/68994139/94392626-c2813500-0193-11eb-9ab9-de5320d03bcd.gif)
 
-# 実装したい機能
-- 農園のツイート機能(消費者が農園のことをより理解できるように)
+# これから実装したい機能
 - 結合テストコード
 - AWSでのデプロイ
 

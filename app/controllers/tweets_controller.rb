@@ -14,7 +14,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     @tweet.farm_id = @farm.id
     if @tweet.save
-      redirect_to root_path
+      redirect_to farm_tweets_path(@farm)
     else
       render :new
     end
