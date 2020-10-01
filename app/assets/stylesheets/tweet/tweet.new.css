@@ -1,0 +1,49 @@
+.tweet-new-title{
+  text-align: center;
+}
+
+.tweet-new{
+  width: 80%;
+  margin: 30px auto 0;
+  border: 1px solid black;
+}
+
+.tweet-inner{
+  padding: 20px 10px;
+}
+
+.tweet-text{
+  margin-bottom: 10px;
+}
+
+.tweet-text textarea{
+  width: 100%;
+  height: 51px;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 black inset;
+}
+
+.tweet-text label{
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.tweet-image{
+  margin-bottom: 10px;
+}
+
+.tweet-image label{
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+
+.tweet-submit input[type="submit"]{
+  width: 100%;
+  height: 31px;
+  background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+  border-radius: 3px;
+  border: 1px #a88734 solid;
+  margin-top: 20px;
+}

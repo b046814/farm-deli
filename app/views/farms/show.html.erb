@@ -15,6 +15,7 @@
 <% if current_farmer == @farm.farmer %>
   <%= link_to '紹介ページ編集', edit_farm_path(@farm.id) %>
   <%= link_to '紹介ページ削除', farm_path(@farm), method: :delete %>
+  <%= link_to 'ツイート作成', new_farm_tweet_path(@farm) %>
 <% end %>
 <h4 class="farm-small-title">生産品目</h4>
 <div class="item-tag">
